@@ -1,0 +1,13 @@
+<?php
+	function shortURL($url) {
+		$shortURL = file_get_contents('https://sht.al/api.php?url='.$url);
+		if(preg_match("#Error#i", $shortURL))
+		{
+			return $url;
+		} else {
+			return $shortURL;
+		}
+	}
+
+	echo shortURL('https://google.com'); // Exemple avec le site Google.
+?>
